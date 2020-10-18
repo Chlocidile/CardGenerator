@@ -6,14 +6,23 @@ namespace CardGenerator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("How many random cards do you want?");
-            var userChoice = Console.ReadLine();
+            var inputIsValidated = false;
+            var numOfCards = 0;
 
-            if (!int.TryParse(userChoice, out var numOfCards))
+            while (inputIsValidated == false)
             {
-                Console.WriteLine("Please type a number :)");
-                return;
+                Console.WriteLine("How many random cards do you want?");
+                var userChoice = Console.ReadLine();
+
+                if (!int.TryParse(userChoice, out numOfCards))
+                {
+                    Console.WriteLine("Please type a number :)");
+                    continue;
+                }
+
+                inputIsValidated = true;
             }
+
             var random = new Random();
 
             for (var i = 1; i <= numOfCards; i++)
