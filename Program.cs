@@ -7,12 +7,20 @@ namespace CardGenerator
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("How many random cards do you want?");
+            var userChoice = Console.ReadLine();
+
+            if (!int.TryParse(userChoice, out var numOfCards))
+            {
+                Console.WriteLine("Please type a number :)");
+                return;
+            }
             var random = new Random();
 
-            for (var i = 1; i <= 7; i++)
+            for (var i = 1; i <= numOfCards; i++)
             {
                 var randomSuit = (Suit)random.Next(0, 4);
-                var randomNum = random.Next(0, 14);
+                var randomNum = random.Next(1, 14);
                 var card = new Card(randomSuit, randomNum);
                 Console.WriteLine(card);
             }
