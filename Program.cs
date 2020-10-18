@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CardGenerator
 {
@@ -6,9 +7,13 @@ namespace CardGenerator
     {
         static void Main(string[] args)
         {
+            var random = new Random();
+
             for (var i = 1; i <= 7; i++)
             {
-                var card = new Card(Suit.Spades, i);
+                var randomSuit = (Suit)random.Next(0, 4);
+                var randomNum = random.Next(0, 14);
+                var card = new Card(randomSuit, randomNum);
                 Console.WriteLine(card);
             }
         }
