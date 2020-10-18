@@ -48,7 +48,14 @@ namespace CardGenerator
 
         public override string ToString()
         {
-            return $"{Value} of {Suit}";
+            return this switch
+            {
+                { Value: 1 } => $"Ace of {Suit}",
+                { Value: 11 } => $"Jack of {Suit}",
+                { Value: 12 } => $"Queen of {Suit}",
+                { Value: 13 } => $"King of {Suit}",
+                _ => $"{Value} of {Suit}",
+            };
         }
     }
 }
