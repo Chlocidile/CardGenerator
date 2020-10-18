@@ -7,6 +7,7 @@ namespace CardGenerator
         static void Main(string[] args)
         {
             var card = new Card(Suit.Spades, 1);
+            
             Console.WriteLine(card);
         }
     }
